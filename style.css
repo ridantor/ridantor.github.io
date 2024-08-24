@@ -1,0 +1,212 @@
+:root {  
+  --colourPrimary: #031B23;
+  --colourSecondary: white;
+  --colourAccent1: rgb(42, 252, 152);
+  --colourAccent2: rgb(41, 121, 255);
+  --ft: "Fjalla One",sans-serif;
+  --fh: "Cantarell",sans-serif;
+}
+
+@keyframes float {
+  from, to {
+    transform: translateY(-0%);
+  }
+  
+  50% {    
+    transform: translateY(-3%);
+  }
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 1000% center;
+  }
+  
+  to {
+    background-position: 0% center;
+  }
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	background-color: #031B23;
+	margin: 0rem;
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	display: block; /* Make the anchor tag a block element */
+	position: relative; /* Ensure it contains the overlay */
+}
+.line {
+	display: flex;
+	justify-content: space-between;
+}
+
+.word{
+	color:  var(--colourSecondary);
+	font-size: 4vw;
+	font-family: var(--ft);
+	margin: 0rem;
+	text-transform: uppercase;
+	transition: opacity 250ms ease;
+}
+
+.container {
+	width: 40vmin;
+	height: 56vmin;
+	position: relative;
+	object-fit: cover;
+	object-position: 100% center;
+	transition: transform 150ms ease-in-out, opacity 150ms ease-in-out; /* Smooth transition on transform and opacity */
+	max-width: 100%;
+}
+
+.overlay {
+	position: absolute;
+	top: 10px; /* Distance from the top */
+    left: 10px; /* Distance from the left */
+	color: white; /* Default to white text */
+	text-align: left;
+}
+.image-card-title {
+	color: var(--colourPrimary);
+	position: relative;
+	font-family: var(--ft);
+	font-size: 2.5vw;
+	margin: 0;
+}
+.image-card-text {
+	color: var(--colourPrimary);
+	position: relative;
+	font-family: var(--fh);
+	font-size: 1vw;
+	margin: 5px 0 0;
+	top: 0%;
+	left: 0%;
+}
+
+#text:has(.fancy:hover) .word:not(.fancy:hover) {
+  opacity: 0.2;
+}
+
+.fancy span {
+  display: inline-block;
+}
+
+.fancy > .outer {
+  transition: transform 350ms ease;
+}
+
+.fancy:hover > .outer {
+  transition-duration: 800ms;
+}
+
+.fancy:hover > .outer > .inner {
+  animation: float 5s ease infinite;
+}
+
+.fancy:hover > .outer > .inner > .letter {
+  background: linear-gradient(
+    to right,
+    var(--colourAccent1),
+    var(--colourAccent2),
+    var(--colourAccent1)
+  );
+  background-size: 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: background-pan 25s linear infinite;
+}
+
+
+
+
+.fancy:hover > .outer:nth-child(1) {
+  transform: translate(-80%, 60%) rotate(8deg);
+}
+
+.fancy:hover > .outer:nth-child(2) {
+  transform: translate(-40%, 20%) rotate(4deg);
+}
+
+.fancy:hover > .outer:nth-child(3) {
+  transform: translate(-10%, 60%) rotate(-6deg);
+}
+
+.fancy:hover > .outer:nth-child(4) {
+  transform: translate(0%, 8%) rotate(-8deg);
+}
+
+.fancy:hover > .outer:nth-child(5) {
+  transform: translate(0%, -20%) rotate(5deg);
+}
+
+.fancy:hover > .outer:nth-child(6) {
+  transform: translate(0%, 20%) rotate(-3deg);
+}
+
+.fancy:hover > .outer:nth-child(7) {
+  transform: translate(0%, -40%) rotate(-5deg);
+}
+
+.fancy:hover > .outer:nth-child(8) {
+  transform: translate(0%, 15%) rotate(10deg);
+}
+
+.fancy:hover > .outer:nth-child(9) {
+  transform: translate(0%, -50%) rotate(8deg);
+}
+
+.fancy:hover > .outer:nth-child(10) {
+  transform: translate(0%, 15%) rotate(-6deg);
+}
+
+.fancy:hover > .outer:nth-child(11) {
+  transform: translate(50%, -10%) rotate(-3deg);
+}
+
+#image-track {
+	display: flex;
+	gap: 4vmin;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-20%, -50%); 
+	user-select: none;
+}
+
+#image-track > .image {
+	width: 40vmin;
+	height: 56vmin;
+	object-fit: cover;
+	object-position: 100% center;
+}
+
+
+.image {
+	width: 40vmin;
+	height: 56vmin;
+	object-fit: cover;
+	object-position: 100% center;
+}
+
+
+.container:hover {
+	transform: scale(1.1);
+	opacity: 1;
+	transition-duration: 150ms;/* Scale up by 10% on hover */
+	}
+	
+/* .container:hover ~ .container {
+	opacity: 0.5;
+	transition-duration: 150ms;
+}  */
+
+#image-track:has(.container:hover) .container:not(.container:hover) {
+	opacity: 0.5;
+	transition-duration: 150ms;
+}
