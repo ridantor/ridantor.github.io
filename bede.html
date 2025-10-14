@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bede – Service Dashboard</title>
+  <link rel="icon" type="image/png" href="bede-icon.png">
+  <style>
+    /* ===== Catppuccin Mocha palette ===== */
+    :root {
+      --base: #1e1e2e;
+      --mantle: #181825;
+      --crust: #11111b;
+      --text: #cdd6f4;
+      --subtext: #a6adc8;
+      --rosewater: #f5e0dc;
+      --flamingo: #f2cdcd;
+      --pink: #f5c2e7;
+      --mauve: #cba6f7;
+      --red: #f38ba8;
+      --maroon: #eba0ac;
+      --peach: #fab387;
+      --yellow: #f9e2af;
+      --green: #a6e3a1;
+      --teal: #94e2d5;
+      --sky: #89dceb;
+      --sapphire: #74c7ec;
+      --blue: #89b4fa;
+      --lavender: #b4befe;
+    }
+
+    body {
+      background-color: var(--base);
+      color: var(--text);
+      font-family: "Inter", "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--lavender);
+      box-shadow: 0 0 10px var(--mantle);
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      color: var(--lavender);
+      margin-bottom: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: var(--mantle);
+      border: 2px solid var(--crust);
+      border-radius: 1rem;
+      padding: 1.2rem;
+      text-align: center;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--lavender);
+      background-color: var(--crust);
+    }
+
+    .icon {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .name {
+      font-weight: 600;
+      color: var(--mauve);
+      margin-bottom: 0.2rem;
+    }
+
+    .desc {
+      font-size: 0.9rem;
+      color: var(--subtext);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="bede-icon.png" alt="Venerable Bede Icon">
+    <h1>Bede</h1>
+  </header>
+
+  <div class="grid">
+    <!-- Each card links to the relevant port -->
+    <a class="card" href="http://bede:2283">
+      <div class="icon">📸</div>
+      <div class="name">Immich</div>
+      <div class="desc">Photo & video backup</div>
+    </a>
+    <a class="card" href="http://bede:8096">
+      <div class="icon">⏯️</div>
+      <div class="name">Jellyfin</div>
+      <div class="desc">Media Player</div>
+    </a>
+    <a class="card" href="http://bede:4533">
+      <div class="icon">🎵</div>
+      <div class="name">Symfonium</div>
+      <div class="desc">Music Player</div>
+    </a>
+    <a class="card" href="http://bede:7878">
+      <div class="icon">🎬</div>
+      <div class="name">Radarr</div>
+      <div class="desc">Movies manager</div>
+    </a>
+    <a class="card" href="http://bede:8989">
+      <div class="icon">📺</div>
+      <div class="name">Sonarr</div>
+      <div class="desc">TV shows manager</div>
+    </a>
+    <a class="card" href="http://bede:8686">
+      <div class="icon">🎹</div>
+      <div class="name">Lidarr</div>
+      <div class="desc">Music manager</div>
+    </a>
+    <a class="card" href="http://bede:5030">
+      <div class="icon">🎼</div>
+      <div class="name">Slskd</div>
+      <div class="desc">Music Share</div>
+    </a>
+    <a class="card" href="http://bede:9696">
+      <div class="icon">🔍</div>
+      <div class="name">Prowlarr</div>
+      <div class="desc">Indexer manager</div>
+    </a>
+    <a class="card" href="http://bede:5055">
+      <div class="icon">🎞️</div>
+      <div class="name">Overseerr</div>
+      <div class="desc">Request media</div>
+    </a>
+    <a class="card" href="http://bede:8080">
+      <div class="icon">💾</div>
+      <div class="name">qBittorrent</div>
+      <div class="desc">Torrent client</div>
+    </a>
+    <a class="card" href="http://bede:8085">
+      <div class="icon">📁</div>
+      <div class="name">Filebrowser</div>
+      <div class="desc">Web file manager</div>
+    </a>
+    <a class="card" href="http://bede:8082">
+      <div class="icon">🔐</div>
+      <div class="name">Vaultwarden</div>
+      <div class="desc">Password manager</div>
+    </a>
+    <a class="card" href="http://bede:32400">
+      <div class="icon">🎥</div>
+      <div class="name">Plex</div>
+      <div class="desc">Media streaming</div>
+    </a>
+    <a class="card" href="http://bede:81">
+      <div class="icon">🌐</div>
+      <div class="name">Nginx Proxy Manager</div>
+      <div class="desc">Reverse proxy UI</div>
+    </a>
+    <a class="card" href="http://bede/admin">
+      <div class="icon">🕳️</div>
+      <div class="name">Pi-hole</div>
+      <div class="desc">Network ad blocker</div>
+    </a>
+    <a class="card" href="http://bede:6767">
+      <div class="icon">💬</div>
+      <div class="name">Bazarr</div>
+      <div class="desc">Subtitle Manager</div>
+    </a>
+  </div>
+</body>
+</html>
+
